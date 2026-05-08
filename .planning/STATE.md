@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-05-08)
 
 **Core value:** Make daily Claude Code usage feel less transactional and more rewarding, through honest gamification of the workflow signals users already generate.
-**Current focus:** Phase 1 — Backend Skeleton + Auth (next up; Phase 0 is the immediate work)
+**Current focus:** Phase 0 — Project Setup, Privacy, and Sustainability Scaffolding (context gathered, ready to plan)
 
 ## Current Position
 
-Phase: none of 11 (next: Phase 0 — Project Setup, Privacy, and Sustainability Scaffolding)
+Phase: 0 of 11 — Project Setup, Privacy, and Sustainability Scaffolding (in discussion)
 Plan: none in flight
-Status: Roadmap complete, ready to plan Phase 0
-Last activity: 2026-05-08 — ROADMAP.md generated (11 phases, 154/154 v1 requirements mapped)
+Status: Phase 0 context gathered; ready to plan
+Last activity: 2026-05-08 — 00-CONTEXT.md + 00-DISCUSSION-LOG.md written and committed
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -45,6 +45,12 @@ Recent decisions affecting current work:
 - Roadmap (2026-05-08): Horizontal-layer phase structure adopted exactly as recommended in research/SUMMARY.md (Phases 0-10)
 - Roadmap (2026-05-08): Phase 0 owns OSS sustainability + privacy scaffolding before any product code
 - Roadmap (2026-05-08): Pino token-redaction transport and CI grep gate on `sk-ant-*` install in Phase 1, not deferred
+- Phase 0 (2026-05-08): License = Apache-2.0; CoC = Contributor Covenant 2.1; contribution gate = DCO sign-off
+- Phase 0 (2026-05-08): Public hosting = Hetzner CX22 + Coolify; user cap = 5,000 active accounts; overflow = waitlist + self-host link
+- Phase 0 (2026-05-08): Email = Resend (public) / SMTP_URL (self-host); Mailpit in docker-compose; domain bought in Phase 0
+- Phase 0 (2026-05-08): Repo = GitHub; **stays private until maintainer flips it** (user override of recommendation)
+- Phase 0 (2026-05-08): Donations = Ko-fi or OpenCollective at Phase 0; GitHub Sponsors deferred to flip-day (Claude's discretion)
+- Phase 0 (2026-05-08): Final product name deferred to Phase 9; placeholder names `gsd-helper` / `gsd-server`
 
 ### Pending Todos
 
@@ -73,9 +79,9 @@ Items acknowledged and carried forward from previous milestone close:
 
 ## Session Continuity
 
-Last session: 2026-05-08 (roadmap creation)
-Stopped at: ROADMAP.md and STATE.md written; awaiting orchestrator commit
-Resume file: None
+Last session: 2026-05-08 (Phase 0 context gathered)
+Stopped at: 00-CONTEXT.md committed; ready for `/gsd-plan-phase 0`
+Resume file: .planning/phases/00-project-setup-privacy-and-sustainability-scaffolding/00-CONTEXT.md
 
 ## Artifacts Produced So Far
 
@@ -89,3 +95,5 @@ Resume file: None
 - `.planning/research/ARCHITECTURE.md`
 - `.planning/research/PITFALLS.md`
 - `.planning/config.json` (mode=yolo, granularity=fine, commit_docs=true, branching=none)
+- `.planning/phases/00-project-setup-privacy-and-sustainability-scaffolding/00-CONTEXT.md` (Phase 0 implementation decisions for downstream researcher + planner)
+- `.planning/phases/00-project-setup-privacy-and-sustainability-scaffolding/00-DISCUSSION-LOG.md` (Phase 0 discussion audit trail)

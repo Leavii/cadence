@@ -36,7 +36,11 @@ The journey starts with project sustainability scaffolding (license, privacy, sh
   3. `docker compose up` from a clean clone boots the same container images the public instance will run, with no extra setup steps
   4. Privacy policy, ToS, hosting-cap declaration, retention schedule, and 90-day shutdown plan are committed under `docs/legal/` and reachable from the (placeholder) web app footer
   5. Granular-consent model is documented (event capture, public leaderboards, email digests as separate consents) and Plausible (not GA) is the only analytics provider in scope
-**Plans**: TBD
+**Plans**: 4 plans
+- [ ] 00-01-PLAN.md - Repo Charter & CI (LICENSE, CoC, CONTRIBUTING, SECURITY, .gitignore, .editorconfig, license-check + DCO workflows, PR/issue templates) - FND-01, FND-02, FND-03
+- [ ] 00-02-PLAN.md - Self-Host Parity (docker-compose.yml with Postgres 17 + Valkey 8 + Mailpit, .env.example, scripts/verify-phase-0.sh) - FND-08
+- [ ] 00-03-PLAN.md - Legal & Privacy & Ops Docs (privacy-policy, terms-of-service, retention-schedule, hosting-cap, shutdown-plan, dns) - FND-04, FND-05, PRIV-01..05
+- [ ] 00-04-PLAN.md - Sustainability + Monorepo + Architecture (README, root package.json, pnpm-workspace.yaml, turbo.json, 8 workspace stubs, reserved-handles.json, docs/architecture/00-overview.md) - FND-06, FND-07
 **Risks (PITFALLS)**:
 - Pitfall 7: Maintainer burnout — hosting cap, shutdown plan, donations, and "hobby project" framing must ship here, not "later"
 - Pitfall 6: Token-handling rule must be written into the architecture doc here even though it's enforced in Phase 1 logging
@@ -214,7 +218,7 @@ The journey starts with project sustainability scaffolding (license, privacy, sh
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 0. Project Setup, Privacy, and Sustainability Scaffolding | 0/TBD | Not started | - |
+| 0. Project Setup, Privacy, and Sustainability Scaffolding | 0/4 | Not started | - |
 | 1. Backend Skeleton + Auth | 0/TBD | Not started | - |
 | 2. RFC 8628 Device Authorization Flow | 0/TBD | Not started | - |
 | 3. Event Ingest + Daily Rollup Worker | 0/TBD | Not started | - |

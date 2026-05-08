@@ -1201,32 +1201,19 @@ ASVS Level 1 per `.planning/config.json`. Phase 0 has no application code, but s
 
 **Confirm with user before locking** A3 (maintainer EU-residency) — drives the privacy-policy template shape materially. Other items are low-risk and detectable at plan-check.
 
-## Open Questions
+## Open Questions (RESOLVED)
 
-1. **Is the maintainer EU-resident for privacy-policy controller declaration?**
-   - What we know: D-08 prefers EU hosting; CONTEXT.md does not name maintainer residence.
-   - What's unclear: If maintainer is non-EU, GDPR Art. 27 EU representative requirement may apply (or may not, depending on volume).
-   - Recommendation: Confirm at start of planning. Default the privacy policy template to "EU-resident maintainer, Hetzner DE host, no international transfers in scope" but flag for swap if maintainer is non-EU.
+> All five questions resolved during planning. Resolution path noted inline per question.
 
-2. **Does Coolify require a Dockerfile per service, or does it accept the bare `docker-compose.yml` we ship?**
-   - What we know: Coolify supports compose-based deployments per its docs.
-   - What's unclear: For the same `docker-compose.yml` to literally work for both `docker compose up` (self-host) and Coolify (public), Coolify must consume our exact file. Some Coolify setups expect a Coolify-managed override.
-   - Recommendation: A first-deploy smoke test on a throwaway Hetzner CX22 VM, using the Phase-0 `docker-compose.yml`, confirms parity. Out of strict Phase 0 scope but cheap belt-and-suspenders to do once.
+1. **Is the maintainer EU-resident for privacy-policy controller declaration?** — **RESOLVED:** deferred to Plan 00-03 Task 1 (`checkpoint:human-verify`, blocking gate before Task 2). The privacy-policy template ships with a default "EU-resident maintainer, Hetzner DE host, no international transfers in scope" stance and the human checkpoint flips that shape if the maintainer answers non-EU. Captured in VALIDATION.md § Manual-Only Verifications? No — this is a planning-time gate, not an execution-time manual verification, and the plan handles it.
 
-3. **Should the license-check workflow's denylist also include CC-BY-NC, BSL, ELv2, or other "source-available but commercial-restricted" licenses?**
-   - What we know: FND-02 names GPL/AGPL/SSPL/RSALv2 explicitly.
-   - What's unclear: Some "source-available" licenses (BSL, ELv2 etc.) are not OSI-approved but also not in FND-02's denylist. Permitting them by default is implicit.
-   - Recommendation: Plan-check decision. Lean conservative: extend denylist to include `BUSL-1.1`, `ELv2`, `Confluent-Community-1.0`, `MariaDB-BSL-1.1`. None should appear in a typical TS/Node monorepo; cheap defense.
+2. **Does Coolify require a Dockerfile per service, or does it accept the bare `docker-compose.yml` we ship?** — **RESOLVED:** deferred to first-deploy smoke test on a throwaway Hetzner CX22 VM. Captured in VALIDATION.md § Manual-Only Verifications row 1 ("First-deploy parity on Hetzner CX22 + Coolify"). Out of strict Phase 0 execution scope; documented for one-time confirmation in `docs/ops/deploy-coolify.md`.
 
-4. **Final reserved-handle list size — is 200 actually right, or should it be smaller (more permissive) or larger (more defensive)?**
-   - What we know: CD-03 says "~200 names." `shouldbee/reserved-usernames` has 590.
-   - What's unclear: Larger list = more user friction at handle-claim; smaller list = more squat risk.
-   - Recommendation: 200 covers the categorization in Pitfall 5. Trim from 590 → 200 by dropping rare/obsolete entries; extend if a brand-collision audit at Phase 1 surfaces gaps.
+3. **Should the license-check workflow's denylist also include CC-BY-NC, BSL, ELv2, or other "source-available but commercial-restricted" licenses?** — **RESOLVED:** YES. Plan 00-01 Task 2(a) extends the denylist to include `BUSL-1.1`, `ELv2`, `Confluent-Community-1.0`, `MariaDB-BSL-1.1` in addition to the FND-02 named four (GPL / AGPL / SSPL / RSALv2). Conservative defensive default per the recommendation here.
 
-5. **Should `docker-compose.yml` use Compose profiles (`profiles: [self-host, public, dev]`) to guard which services start by default?**
-   - What we know: Profiles are a Compose v2 feature for conditional service start.
-   - What's unclear: At Phase 0 there are only three services and they're all needed in dev + self-host + public. Profiles are unused.
-   - Recommendation: Skip profiles in Phase 0. Reconsider when Phase 1+ adds the API/web/worker images and self-host wants a leaner subset.
+4. **Final reserved-handle list size — is 200 actually right, or should it be smaller (more permissive) or larger (more defensive)?** — **RESOLVED:** target 180-220 (centered on ~200). Plan 00-04 Task 3 enforces this band. Trim from `shouldbee/reserved-usernames` (590) by dropping rare/obsolete entries; extend at Phase 1 enforcement time if a brand-collision audit surfaces gaps.
+
+5. **Should `docker-compose.yml` use Compose profiles (`profiles: [self-host, public, dev]`) to guard which services start by default?** — **RESOLVED:** NO. Plan 00-02 Task 1 ships a flat compose with no profiles. Reconsider when Phase 1+ adds API/web/worker images and self-host wants a leaner subset.
 
 ## Sources
 

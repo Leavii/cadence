@@ -1,6 +1,6 @@
-# Claude Code Gamification Service
+# cadence
 
-*(Working title — final product name TBD. Directory name `GSD-StatusLineGamification` is legacy and undersells the scope.)*
+*Repo: [Leavii/cadence](https://github.com/Leavii/cadence) (private; may go open source — not a committed direction). Local directory name `GSD-StatusLineGamification` is legacy.*
 
 ## What This Is
 
@@ -111,7 +111,13 @@ Make daily Claude Code usage feel less transactional and more rewarding, through
 | Cosmetics drop from achievements only (no shop, no random) | Every cosmetic has a story; no XP economy to balance | — Pending |
 | Browser-mediated device pairing for onboarding | Familiar OAuth-style UX; binds local install cleanly | — Pending |
 | Lightweight anti-cheat only | Performance/UX cost is unacceptable; tolerate some gaming | — Pending |
-| Open source + donations (no paid tiers) | Aligns with audience; transparent moderation; self-hostable | — Pending |
+| Open source + donations (no paid tiers) | Aligns with audience; transparent moderation; self-hostable | Locked (Phase 0): Apache-2.0 LICENSE + DCO sign-off + Ko-fi donations placeholder. Repo currently private; OSS publication possible but uncommitted. |
+| Project name = `cadence`, repo `Leavii/cadence` | Resolves the working-title placeholder; final name | Locked (Phase 0) |
+| Tech stack: Node 22 + TypeScript + Hono + Postgres 17 + Valkey 8 + Drizzle + Better Auth + BullMQ + SvelteKit + Tailwind + 8bitcn/ui | OSS-friendly, self-hostable, RFC 8628 device-pairing as a first-class primitive | Locked (Phase 0) |
+| Phase 0 scaffolding committed BEFORE any product code | License/CoC/DCO/CI gates/legal docs/Docker compose/monorepo/architecture rules in place, so Phase 1+ has a solid foundation | Validated (Phase 0): 4/4 plans, 13/13 verification truths, 22+ files committed |
+| Helper never asserts game state (architectural rule) | Centralizes audit log + anti-cheat in backend; helper observes only | Locked (Phase 0 architecture doc); enforced Phase 5 (HELPER-11) |
+| Anthropic OAuth tokens never reach cadence backend (architectural rule) | Privacy ceiling; we never own that token's leak risk | Locked (Phase 0 architecture doc); enforced Phase 1 (Pino redaction + CI grep gate) and Phase 5 (HELPER-12) |
+| Plausible Cloud only, no Plausible CE in compose | CE collects raw IPs / per-user pageview rows on our side, pushing toward GDPR controller obligations | Locked (Phase 0 architecture doc + verify-phase-0.sh smoke gate); enforced Phase 4 |
 | Retro arcade aesthetic | Consistent visual identity across web and statusline output; matches ASCII surface area | — Pending |
 | v1 lean: quests / achievements / leaderboards / cosmetics / social hub | Validate the core loop before adding raids and companions | — Pending |
 | Raids and companions explicit v2 | Bigger scope; ship and learn before committing to them | — Pending |
@@ -135,4 +141,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-08 after initialization*
+*Last updated: 2026-05-08 after Phase 0 completion (4/4 plans, 13/13 verified)*

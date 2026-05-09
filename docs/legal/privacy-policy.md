@@ -55,8 +55,8 @@ days. To file a complaint: your local Data Protection Authority (in DE: BfDI).
 The public instance uses **Plausible Analytics (managed cloud, plausible.io)**.
 Plausible is cookie-free and does not collect personal data. See
 plausible.io/data-policy for their data flows. **Plausible is the only
-third-party analytics provider in scope.** No Google Analytics, no Facebook
-Pixel, no behavioral tracking.
+third-party analytics provider in scope.** No third-party advertising
+trackers (no GA-style tools, no social pixels), no behavioral profiling.
 
 ## Cookies
 

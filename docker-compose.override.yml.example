@@ -1,0 +1,17 @@
+# docker-compose.override.yml.example
+#
+# Copy this file to `docker-compose.override.yml` (which is gitignored) for
+# dev-machine-specific tweaks. Coolify and other deployments will NOT pick it up.
+#
+# Common dev-only tweaks:
+#
+# services:
+#   cadence-postgres:
+#     ports:
+#       - "5432:5432"   # expose Postgres locally for psql / DB GUI tools
+#   cadence-valkey:
+#     ports:
+#       - "6379:6379"   # expose Valkey locally for redis-cli / valkey-cli
+#
+# Note: do NOT add app services (api/web/workers) here -- those will be added
+# to the main docker-compose.yml in later phases.

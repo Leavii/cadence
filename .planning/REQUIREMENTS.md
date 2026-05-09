@@ -9,14 +9,14 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Project Foundation & Sustainability
 
-- [ ] **FND-01**: Codebase is published under a permissive OSS license (Apache-2.0 preferred, MIT acceptable)
-- [ ] **FND-02**: CI fails any pull request that introduces a GPL/AGPL/SSPL/RSALv2 transitive dependency
-- [ ] **FND-03**: Repository ships with `CONTRIBUTING.md` and a published Code of Conduct
-- [ ] **FND-04**: Public hosted instance enforces a published user-count cap with a documented overflow policy
-- [ ] **FND-05**: Public shutdown plan documents 90-day notice window and full data export path
-- [ ] **FND-06**: Donations channel (GitHub Sponsors or equivalent) is linked from the README and web app footer
-- [ ] **FND-07**: README explicitly states maintenance posture (hobby project, best-effort response)
-- [ ] **FND-08**: `docker-compose.yml` boots a self-hosted instance from the same images as the public instance
+- [x] **FND-01**: Codebase is published under a permissive OSS license (Apache-2.0 preferred, MIT acceptable)
+- [x] **FND-02**: CI fails any pull request that introduces a GPL/AGPL/SSPL/RSALv2 transitive dependency
+- [x] **FND-03**: Repository ships with `CONTRIBUTING.md` and a published Code of Conduct
+- [x] **FND-04**: Public hosted instance enforces a published user-count cap with a documented overflow policy
+- [x] **FND-05**: Public shutdown plan documents 90-day notice window and full data export path
+- [x] **FND-06**: Donations channel (GitHub Sponsors or equivalent) is linked from the README and web app footer
+- [x] **FND-07**: README explicitly states maintenance posture (hobby project, best-effort response)
+- [x] **FND-08**: `docker-compose.yml` boots a self-hosted instance from the same images as the public instance
 
 ### Authentication
 
@@ -185,11 +185,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Privacy & Data Handling
 
-- [ ] **PRIV-01**: Privacy policy and Terms of Service are linked from every page footer
-- [ ] **PRIV-02**: Granular consent model: users consent separately to event capture, public leaderboards, and email digests
-- [ ] **PRIV-03**: Raw events retention is 90 days; aggregates may be retained indefinitely
-- [ ] **PRIV-04**: Public hosted instance uses Plausible (or equivalent privacy-respecting analytics), never Google Analytics
-- [ ] **PRIV-05**: All API tokens and sensitive headers are redacted in logs
+- [x] **PRIV-01**: Privacy policy and Terms of Service are linked from every page footer
+- [x] **PRIV-02**: Granular consent model: users consent separately to event capture, public leaderboards, and email digests
+- [x] **PRIV-03**: Raw events retention is 90 days; aggregates may be retained indefinitely
+- [x] **PRIV-04**: Public hosted instance uses Plausible (or equivalent privacy-respecting analytics), never Google Analytics
+- [x] **PRIV-05**: All API tokens and sensitive headers are redacted in logs
 
 ### Visual Identity
 

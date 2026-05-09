@@ -12,7 +12,7 @@ The journey starts with project sustainability scaffolding (license, privacy, sh
 
 ## Phases
 
-- [ ] **Phase 0: Project Setup, Privacy, and Sustainability Scaffolding** - Monorepo, license, OSS docs, privacy/ToS, retention model, public shutdown plan, Docker Compose parity
+- [x] **Phase 0: Project Setup, Privacy, and Sustainability Scaffolding** - Monorepo, license, OSS docs, privacy/ToS, retention model, public shutdown plan, Docker Compose parity (completed 2026-05-09)
 - [ ] **Phase 1: Backend Skeleton + Auth** - Hono + Drizzle + Postgres + Valkey + BullMQ scaffolding with Better Auth (email/password + GitHub) and reserved-handle squat protection
 - [ ] **Phase 2: RFC 8628 Device Authorization Flow** - Browser-mediated CLI pairing with PKCE, user_code re-entry, rich device context, email-on-pair, revocation UI
 - [ ] **Phase 3: Event Ingest + Daily Rollup Worker** - `POST /v1/events` with idempotency, velocity limits, plausibility checks, raw events table, daily rollups, Anthropic usage cache
@@ -37,10 +37,10 @@ The journey starts with project sustainability scaffolding (license, privacy, sh
   4. Privacy policy, ToS, hosting-cap declaration, retention schedule, and 90-day shutdown plan are committed under `docs/legal/` and reachable from the (placeholder) web app footer
   5. Granular-consent model is documented (event capture, public leaderboards, email digests as separate consents) and Plausible (not GA) is the only analytics provider in scope
 **Plans**: 4 plans
-- [ ] 00-01-PLAN.md - Repo Charter & CI (LICENSE, CoC, CONTRIBUTING, SECURITY, .gitignore, .editorconfig, license-check + DCO workflows, PR/issue templates) - FND-01, FND-02, FND-03
-- [ ] 00-02-PLAN.md - Self-Host Parity (docker-compose.yml with Postgres 17 + Valkey 8 + Mailpit, .env.example, scripts/verify-phase-0.sh) - FND-08
-- [ ] 00-03-PLAN.md - Legal & Privacy & Ops Docs (privacy-policy, terms-of-service, retention-schedule, hosting-cap, shutdown-plan, dns) - FND-04, FND-05, PRIV-01..05
-- [ ] 00-04-PLAN.md - Sustainability + Monorepo + Architecture (README, root package.json, pnpm-workspace.yaml, turbo.json, 8 workspace stubs, reserved-handles.json, docs/architecture/00-overview.md) - FND-06, FND-07
+- [x] 00-01-PLAN.md - Repo Charter & CI (LICENSE, CoC, CONTRIBUTING, SECURITY, .gitignore, .editorconfig, license-check + DCO workflows, PR/issue templates) - FND-01, FND-02, FND-03
+- [x] 00-02-PLAN.md - Self-Host Parity (docker-compose.yml with Postgres 17 + Valkey 8 + Mailpit, .env.example, scripts/verify-phase-0.sh) - FND-08
+- [x] 00-03-PLAN.md - Legal & Privacy & Ops Docs (privacy-policy, terms-of-service, retention-schedule, hosting-cap, shutdown-plan, dns) - FND-04, FND-05, PRIV-01..05
+- [x] 00-04-PLAN.md - Sustainability + Monorepo + Architecture (README, root package.json, pnpm-workspace.yaml, turbo.json, 8 workspace stubs, reserved-handles.json, docs/architecture/00-overview.md) - FND-06, FND-07
 **Risks (PITFALLS)**:
 - Pitfall 7: Maintainer burnout — hosting cap, shutdown plan, donations, and "hobby project" framing must ship here, not "later"
 - Pitfall 6: Token-handling rule must be written into the architecture doc here even though it's enforced in Phase 1 logging
@@ -218,7 +218,7 @@ The journey starts with project sustainability scaffolding (license, privacy, sh
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 0. Project Setup, Privacy, and Sustainability Scaffolding | 0/4 | Not started | - |
+| 0. Project Setup, Privacy, and Sustainability Scaffolding | 4/4 | Complete    | 2026-05-09 |
 | 1. Backend Skeleton + Auth | 0/TBD | Not started | - |
 | 2. RFC 8628 Device Authorization Flow | 0/TBD | Not started | - |
 | 3. Event Ingest + Daily Rollup Worker | 0/TBD | Not started | - |

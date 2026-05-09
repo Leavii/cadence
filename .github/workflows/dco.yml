@@ -1,0 +1,17 @@
+name: DCO
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  dco:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # need full history for the trailer scan
+      - uses: KineticCafe/actions-dco@v2
+        with:
+          repo-token: ${{ github.token }}

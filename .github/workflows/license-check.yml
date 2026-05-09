@@ -1,0 +1,31 @@
+name: License Check
+on:
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check-licenses:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      # pnpm licenses list outputs JSON keyed by license; we fail if banned keys are present.
+      - name: Fail on banned licenses
+        shell: bash
+        run: |
+          pnpm licenses list --json > /tmp/licenses.json
+          BANNED='GPL-2.0|GPL-3.0|AGPL-1.0|AGPL-3.0|LGPL-2.1|LGPL-3.0|SSPL-1.0|RSAL-2.0|RSALv2|BUSL-1.1|ELv2|Confluent-Community-1.0|MariaDB-BSL-1.1'
+          if grep -E "\"($BANNED)\"" /tmp/licenses.json > /tmp/hits.txt; then
+            echo "::error::Banned license detected:"
+            cat /tmp/hits.txt
+            exit 1
+          fi
+          echo "OK: no banned licenses found."

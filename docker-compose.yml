@@ -1,0 +1,58 @@
+# docker-compose.yml
+# Phase 0 baseline -- apps/api, apps/web, apps/workers added in later phases via the same file.
+# Public instance (Hetzner CX22 + Coolify per D-05) and self-host run THIS file.
+# Dev-only tweaks go in docker-compose.override.yml (gitignored; .example only).
+services:
+  cadence-postgres:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-gsd}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-gsd_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-gsd}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-gsd} -d ${POSTGRES_DB:-gsd}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks: [cadence-net]
+
+  cadence-valkey:
+    image: valkey/valkey:8-alpine
+    restart: unless-stopped
+    command: ["valkey-server", "--appendonly", "yes"]
+    volumes:
+      - valkey-data:/data
+    healthcheck:
+      test: ["CMD", "valkey-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks: [cadence-net]
+
+  cadence-mailpit:
+    image: axllent/mailpit:v1.20
+    restart: unless-stopped
+    ports:
+      - "${MAILPIT_SMTP_PORT:-1025}:1025"
+      - "${MAILPIT_UI_PORT:-8025}:8025"
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATABASE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    volumes:
+      - mailpit-data:/data
+    # Mailpit's Dockerfile already has a HEALTHCHECK using `mailpit readyz` -- do not redefine.
+    networks: [cadence-net]
+
+volumes:
+  postgres-data:
+  valkey-data:
+  mailpit-data:
+
+networks:
+  cadence-net:
+    driver: bridge
